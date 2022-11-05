@@ -36,6 +36,52 @@ class LaunchRequestHandler(AbstractRequestHandler):
                 .response
         )
 
+NATO_ALPHABET_MAPPING = {
+    'A': "alpha",
+    'B': "alpha",
+    'C': "alpha",
+    'D': "alpha",
+    'E': "alpha",
+    'F': "alpha",
+    'G': "alpha",
+    'H': "alpha",
+    'I': "alpha",
+    'J': "alpha",
+    'L': "alpha",
+    'M': "alpha",
+    'N': "alpha",
+    'O': "alpha",
+    'P': "alpha",
+    'Q': "alpha",
+    'R': "alpha",
+    'S': "alpha",
+    'T': "alpha",
+    'U': "alpha",
+    'V': "alpha",
+    'W': "alpha",
+    'X': "alpha",
+    'Y': "alpha",
+    'Z': "alpha",
+}
+
+class IndividualCharacterIntentHandler(AbstractRequestHandler):
+    """Handler for Hello World Intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("IndividualCharacterIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        letter = handler_input['letter']
+        speak_output = NATO_ALPHABET_MAPPING[letter]
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                # .ask("add a reprompt if you want to keep the session open for the user to respond")
+                .response
+        )
+
 
 class HelloWorldIntentHandler(AbstractRequestHandler):
     """Handler for Hello World Intent."""
@@ -171,6 +217,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
+sb.add_request_handler(IndividualCharacterIntentHandler())
 sb.add_request_handler(HelloWorldIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
