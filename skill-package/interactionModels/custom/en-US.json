@@ -1,0 +1,252 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "miss spelly",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "IndividualCharacter",
+          "slots": [
+            {
+              "name": "letter",
+              "type": "Alphabet",
+              "samples": [
+                "{letter}",
+                "I said {letter}"
+              ]
+            }
+          ],
+          "samples": [
+            "what\u0027s the NATO word for {letter}",
+            "what\u0027s the military word for {letter}",
+            "what\u0027s the army word for {letter}",
+            "how does the army say {letter}",
+            "what about the alphabet {letter}",
+            "how does the military say {letter}",
+            "how soldiers say {letter}",
+            "how do soldiers say {letter}",
+            "what\u0027s the military alphabet for {letter}",
+            "what\u0027s the NATO alphabet for {letter}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Z"
+              }
+            },
+            {
+              "name": {
+                "value": "Y"
+              }
+            },
+            {
+              "name": {
+                "value": "X"
+              }
+            },
+            {
+              "name": {
+                "value": "W"
+              }
+            },
+            {
+              "name": {
+                "value": "V"
+              }
+            },
+            {
+              "name": {
+                "value": "U"
+              }
+            },
+            {
+              "name": {
+                "value": "T"
+              }
+            },
+            {
+              "name": {
+                "value": "S"
+              }
+            },
+            {
+              "name": {
+                "value": "R"
+              }
+            },
+            {
+              "name": {
+                "value": "Q"
+              }
+            },
+            {
+              "name": {
+                "value": "P"
+              }
+            },
+            {
+              "name": {
+                "value": "O"
+              }
+            },
+            {
+              "name": {
+                "value": "N"
+              }
+            },
+            {
+              "name": {
+                "value": "M"
+              }
+            },
+            {
+              "name": {
+                "value": "L"
+              }
+            },
+            {
+              "name": {
+                "value": "K"
+              }
+            },
+            {
+              "name": {
+                "value": "J"
+              }
+            },
+            {
+              "name": {
+                "value": "I"
+              }
+            },
+            {
+              "name": {
+                "value": "H"
+              }
+            },
+            {
+              "name": {
+                "value": "G"
+              }
+            },
+            {
+              "name": {
+                "value": "F"
+              }
+            },
+            {
+              "name": {
+                "value": "E"
+              }
+            },
+            {
+              "name": {
+                "value": "D"
+              }
+            },
+            {
+              "name": {
+                "value": "C"
+              }
+            },
+            {
+              "name": {
+                "value": "B"
+              }
+            },
+            {
+              "name": {
+                "value": "A"
+              }
+            }
+          ],
+          "name": "Alphabet"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "IndividualCharacterIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "letter",
+              "type": "Alphabet",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.884462702551.742823377871"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1376432141987.1366909433059.1271157546543"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.884462702551.742823377871",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What letter did you say?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1376432141987.1366909433059.1271157546543",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please say a letter of the English alphabet like A, B or Z"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "3"
+}
