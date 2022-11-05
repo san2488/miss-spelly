@@ -65,7 +65,7 @@ NATO_ALPHABET_MAPPING = {
 }
 
 class IndividualCharacterIntentHandler(AbstractRequestHandler):
-    """Handler for Hello World Intent."""
+    """Handler for Individual Character Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return ask_utils.is_intent_name("IndividualCharacterIntent")(handler_input)
@@ -73,7 +73,7 @@ class IndividualCharacterIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         letter = handler_input['letter']
-        speak_output = NATO_ALPHABET_MAPPING[letter]
+        speak_output = "Yes please" # NATO_ALPHABET_MAPPING[letter]
 
         return (
             handler_input.response_builder
