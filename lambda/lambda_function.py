@@ -68,7 +68,7 @@ class IndividualCharacterIntentHandler(AbstractRequestHandler):
     """Handler for Individual Character Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
-        return ask_utils.is_intent_name("IndividualCharacter")(handler_input)
+        return ask_utils.is_intent_name("IndividualCharacterIntent")(handler_input)
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
