@@ -72,8 +72,8 @@ class IndividualCharacterIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        letter = handler_input['letter']
-        speak_output = NATO_ALPHABET_MAPPING[letter]
+        letter = "a" # handler_input['letter']
+        speak_output = NATO_ALPHABET_MAPPING[letter.upper()]
 
         return (
             handler_input.response_builder
